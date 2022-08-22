@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :surfboards do
+  resources :surfboards, except: ['update', 'edit'] do
     resources :bookings, only: ['new', 'create', 'destroy']
   end
   resources :bookings, only: 'index'

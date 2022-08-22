@@ -4,4 +4,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :surfboards do
+    resources :bookings, only: ['new', 'create', 'destroy']
+  end
+  resources :bookings, only: 'index'
+  get 'my_surfboards', to: 'surfboards#my_surfboards'
+  get 'my_bookings', to: 'bookings#my_bookings'
 end

@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
+require "open-uri"
 
-User.destroy_all
 Surfboard.destroy_all
+User.destroy_all
 
 20.times do
   password = Faker::Alphanumeric.alphanumeric(number: 10)
@@ -21,11 +22,14 @@ Surfboard.destroy_all
 end
 
 100.times do
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
+
   surfboard = Surfboard.new(
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
     user_id: rand(1..20),
     rating: rand(2..5)
   )
+  surfboard.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
   surfboard.save
 end

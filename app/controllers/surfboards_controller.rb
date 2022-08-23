@@ -1,8 +1,8 @@
 class SurfboardsController < ApplicationController
-  # before_action :set_user
+  before_action :set_user, only: :my_surfboards
 
   def index
-    @surfboards = Surfboard.all
+    @surfboard = Surfboard.all
   end
 
   def my_surfboards
@@ -21,7 +21,7 @@ class SurfboardsController < ApplicationController
     @surfboard = Surfboard.new(surfboard_params)
     @surfboard.user = current_user
     if @surfboard.save
-      redirect_to my_surfboards, notice: 'Surfboard successfully added.'
+      redirect_to root_path, notice: 'Surfboard successfully added.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class SurfboardsController < ApplicationController
   private
 
   def surfboard_params
-    params.require(:surfboard).permit(:description, :availability, :price, :user_id, :rating)
+    params.require(:surfboard).permit(:description, :price, :user_id, :rating, :photos)
   end
 
 end

@@ -2,6 +2,6 @@
 <% @surfboards.each do |surfboard| %>
 <%= surfboard.description %>
 <%= surfboard.price %>
-<%= link_to  %>
+<%= link_to 'View', surfboard_path(surfboard), class: 'btn btn-warning' %>
 <br>
 <% end %>

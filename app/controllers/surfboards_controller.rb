@@ -6,7 +6,7 @@ class SurfboardsController < ApplicationController
   end
 
   def my_surfboards
-    @surfboard = Surfboard.where(surfboard.user == @user)
+    @surfboard = Surfboard.where(user: current_user)
   end
 
   def show
@@ -39,7 +39,4 @@ class SurfboardsController < ApplicationController
     params.require(:surfboard).permit(:description, :price, :user_id, :rating, :photos)
   end
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 end

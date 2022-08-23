@@ -1,2 +1,7 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @surfboards.each do |surfboard| %>
+<%= surfboard.description %>
+<%= surfboard.price %>
+<%= link_to 'View', surfboard_path(surfboard), class: 'btn btn-warning' %>
+<br>
+<% end %>

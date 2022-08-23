@@ -11,7 +11,7 @@ require "open-uri"
 Surfboard.destroy_all
 User.destroy_all
 
-20.times do
+5.times do
   password = Faker::Alphanumeric.alphanumeric(number: 10)
   user = User.new(
     email: Faker::Internet.email,
@@ -21,13 +21,13 @@ User.destroy_all
   user.save
 end
 
-100.times do
+10.times do
   file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
 
   surfboard = Surfboard.new(
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
-    user_id: rand(1..20),
+    user_id: rand(1..5),
     rating: rand(2..5)
   )
   surfboard.photos.attach(io: file, filename: "nes.png", content_type: "image/png")

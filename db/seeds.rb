@@ -22,7 +22,7 @@ User.destroy_all
 end
 
 100.times do
-  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
 
   surfboard = Surfboard.new(
     description: Faker::TvShows::HowIMetYourMother.quote,

@@ -1,4 +1,7 @@
 <h1>Pages#home</h1>
-<%= @surfboards.description %>
-<%= @surfboards.price %>
-<%= link_to %>
+<% @surfboards.each do |surfboard| %>
+<%= surfboard.description %>
+<%= surfboard.price %>
+<%= link_to  %>
+<br>
+<% end %>

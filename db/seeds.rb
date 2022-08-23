@@ -18,8 +18,10 @@ User.destroy_all
     password:,
     password_confirmation: password
   )
-  user.save
+  user.save!
 end
+
+users = User.all
 
 10.times do
   file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
@@ -27,9 +29,9 @@ end
   surfboard = Surfboard.new(
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
-    user_id: rand(1..5),
+    user: users.sample,
     rating: rand(2..5)
   )
   surfboard.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  surfboard.save
+  surfboard.save!
 end

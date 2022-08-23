@@ -6,7 +6,7 @@ class SurfboardsController < ApplicationController
   end
 
   def my_surfboards
-    @surfboard = Surfboard.where(user_id: @user)
+    @surfboard = Surfboard.where(surfboard.user == @user)
   end
 
   def show
@@ -19,7 +19,7 @@ class SurfboardsController < ApplicationController
 
   def create
     @surfboard = Surfboard.new(surfboard_params)
-
+    @surfboard.user = current_user
     if @surfboard.save
       redirect_to my_surfboards, notice: 'Surfboard successfully added.'
     else

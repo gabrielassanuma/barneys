@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def my_bookings
-    @booking = Booking.where(booking.user == @user)
+    @booking = Booking.where(user: current_user)
   end
 
   def new
@@ -25,10 +25,6 @@ class BookingsController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def set_surfboard
     @surfboard = Surfboard.find(params[:surfboard_id])

@@ -1,5 +1,4 @@
 class SurfboardsController < ApplicationController
-  # before_action :set_user
 
   def index
     @surfboards = Surfboard.all

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def my_bookings
-    @booking = Booking.where(user_id: @user)
+    @booking = Booking.where(booking.user == @user)
   end
 
   def new
@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
       redirect_to my_bookings_path
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

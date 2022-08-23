@@ -1,7 +1,25 @@
-<h1>Pages#home</h1>
+<div class="jumbotron banner-back parent position-relative">
+  <div class="position-absolute" style="top: 150px; right: 60px">
+    <h4 class="display-7" style="color: white">Find the perfect board!</h4>
+    <p class="lead">
+      <div class="input-group rounded" style="width: 400px; height: 50px">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+<%# <h1>Pages#home</h1>
 <% @surfboards.each do |surfboard| %>
-<%= surfboard.description %>
-<%= surfboard.price %>
-<%= link_to 'View', surfboard_path(surfboard), class: 'btn btn-warning' %>
-<br>
-<% end %>
+<%# <%= surfboard.description %>
+<%# <%= surfboard.price %>
+<%# <%= link_to 'View', surfboard_path(surfboard), class: 'btn btn-warning' %>
+<%# <br> %>
+<%# <% end %>

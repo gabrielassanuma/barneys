@@ -1,11 +1,11 @@
 class SurfboardsController < ApplicationController
 
   def index
-    @surfboard = Surfboard.all
+    @surfboards = Surfboard.all
   end
 
   def my_surfboards
-    @surfboard = Surfboard.where(user: current_user)
+    @surfboard = Surfboard.where(surfboard.user == @user)
   end
 
   def show
@@ -35,7 +35,6 @@ class SurfboardsController < ApplicationController
   private
 
   def surfboard_params
-    params.require(:surfboard).permit(:description, :price, :user_id, :rating, :photos)
+    params.require(:surfboard).permit(:description, :price, :rating, :photos)
   end
-
 end

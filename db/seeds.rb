@@ -23,14 +23,27 @@ end
 
 users = User.all
 
-10.times do
+addresses = ['Rua Rodrigues de Faria 63, Lisboa',
+             'Rua do Ginjal 69, Almada',
+             'Calçada da Pampulha 27, Lisboa',
+             'Rua das Portas de Santo Antão 150, Lisboa',
+             'Rua Bulhão Pato 2, Lisboa',
+             'Avenida Almirante Reis 1 H, Lisboa',
+             'Praça dos Restauradores 79, Lisboa',
+             'Rua Gilberto Rola 20, Lisboa',
+             'Rua do Loreto 2, Lisboa',
+             'Largo Santos 5, Lisboa']
+
+10.times do |index|
   file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
 
   surfboard = Surfboard.new(
+    title: Faker::WorldCup.roster,
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
     user: users.sample,
-    rating: rand(2..5)
+    rating: rand(2..5),
+    address: addresses[index]
   )
   surfboard.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
   surfboard.save!

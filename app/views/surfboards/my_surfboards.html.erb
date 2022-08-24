@@ -1,2 +1,5 @@
 <h1>Surfboards#my_surfboards</h1>
-<p>Find me in app/views/surfboards/my_surfboards.html.erb</p>
+<% @surfboard.each do |my_board| %>
+<%= surfboard.description %>
+<%= surfboard.price %>
+<% end %>

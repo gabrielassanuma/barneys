@@ -1,14 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #f3c36c; color: white; height: 70px">
-  <div class="logo" style="color: white; padding: 10px">
-    <h4>Barneys Boards</h4>
+  <div class="logo">
+    <%= link_to root_path do %>
+      <h4 style="color: white; padding: 10px">Barneys Boards</h4>
+    <% end %>
   </div>
 </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding: 10px">
     <div class="nav-item" style="padding: 0px 20px">
-      <a class="nav-link" href="/users/sign_in">Login</a>
+      <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
     </div>
     <div class="nav-item" style="padding: 0px 20px">
-      <a class="nav-link" href="/users/sign_up">Sign up</a>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
     </div>
   </div>
 </div>

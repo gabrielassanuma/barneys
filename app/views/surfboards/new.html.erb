@@ -9,7 +9,6 @@
         <%= simple_form_for @surfboard do |f| %>
           <%= f.input :description, placeholder: 'The Big Kahuna' %>
           <%= f.input :price %>
-          <%= f.input :user_id %>
           <%= f.input :rating %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.submit class: 'btn btn-flat' %>

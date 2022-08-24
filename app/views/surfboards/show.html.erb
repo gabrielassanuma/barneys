@@ -10,7 +10,8 @@
     </div>
     <div class="description">
       <h2><%= @surfboard.title %></h2>
-      <h4>[<%= @surfboard.latitude %>,<%= @surfboard.longitude %>]</h4>
+      <% @results = Geocoder.search([@surfboard.latitude, @surfboard.longitude]) %>
+      <h4><%= @results.first.county %></h4>
       <h1>$<%= @surfboard.price %>  per day</h1>
       <p>Rated: *<%= @surfboard.rating %>*</p>
       <p><%= @surfboard.description %></p>

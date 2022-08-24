@@ -4,7 +4,7 @@
       <% @surfboards.each do |surfboard| %>
         <div class="co-12 col-sm-6 col-md-4 mb-3">
           <%= link_to surfboard_path(surfboard), class:"text-decoration-none" do %>
-           <div class="card-category" data-aos="zoom-in" style="background-image: url(<%= surfboard.photos[0].key %>)">
+           <div class="card-category" data-aos="zoom-in" style="background-image: url(<%= cl_image_path(surfboard.photos[0].key) %>)">
             <%= surfboard.description %>
             <%= surfboard.price %>
             <%= surfboard.rating %>

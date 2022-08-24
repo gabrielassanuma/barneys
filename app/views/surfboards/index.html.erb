@@ -6,8 +6,8 @@
             <div class="card-product">
               <img src= <%= cl_image_path surfboard.photos[0].key %>>
               <div class="card-product-infos mt-3 mb-3">
-                <h3><%= @surfboard.title %></h3>
-                <h2>[<%= @surfboard.latitude %>,<%= @surfboard.longitude %>]</h2>
+                <h3><%= surfboard.title %></h3>
+                <h2>[<%= surfboard.latitude %>,<%= surfboard.longitude %>]</h2>
                 <p>$<%= surfboard.price %> per day</p>
                 <p>Rated: *<%= surfboard.rating %>*</p>
                 <p><%= surfboard.description[0,48] %>...</p>

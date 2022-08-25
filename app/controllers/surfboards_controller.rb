@@ -1,7 +1,19 @@
 class SurfboardsController < ApplicationController
 
   def index
-    @surfboards = Surfboard.all
+    if params[:query].present?
+      @surfboards = Surfboard.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @surfboards = Surfboard.all
+    end
+    @markers = @surfboards.geocoded.map do |surfboard|
+      {
+        lat: surfboard.latitude,
+        lng: surfboard.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   def my_surfboards

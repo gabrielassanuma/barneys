@@ -2,12 +2,18 @@
   <div class="position-absolute" style="top: 150px; right: 60px; opacity: 1">
     <h4 class="display-7" style="color: white; border: 1px; border-color: rgba(0, 0, 0, 0.8);">Where are you going?</h4>
     <p class="lead">
-      <div class="input-group rounded" style="height: 50px">
-        <input type="search" class="form-control rounded" placeholder="Location" aria-label="Search" aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-        <i class="fas fa-search"></i>
-        </span>
-      </div>
+      <%= form_with url: surfboards_path, method: :get, class: "d-flex" do %>
+        <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a board",
+            data: {address_autocomplete_target: "address"},
+            class: 'd-none'
+          %>
+        </div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </p>
     </div>
   </div>

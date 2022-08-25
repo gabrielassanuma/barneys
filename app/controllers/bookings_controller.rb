@@ -1,17 +1,23 @@
 class BookingsController < ApplicationController
+  before_action :set_surfboard, only: %i[new create]
 
   def my_bookings
-    @booking = Booking.where(user: current_user)
+    @bookings = Booking.where(user: current_user)
   end
 
   def new
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.surfboard = @surfboard
-    if booking.save
+    @booking.user = current_user
+    if @booking.save
       redirect_to my_bookings_path
     else
       render :new, status: :unprocessable_entity

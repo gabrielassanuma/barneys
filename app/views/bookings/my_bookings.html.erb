@@ -1,2 +1,27 @@
-<h1>Bookings#my_bookings</h1>
-<p>Find me in app/views/bookings/my_bookings.html.erb</p>
+<div class="content">
+  <div class="cards-booking">
+      <% @bookings.each do |booking| %>
+      <div class="card-booking">
+        <%= link_to booking_path(booking), class:"text-decoration-none" do %>
+            <div class="card-product">
+              <img src= <%= cl_image_path booking.surfboard.photos[0].key %>>
+              <div class="card-product-infos">
+                <h3><%= booking.surfboard.model %></h3>
+                <h2><%= booking.surfboard.dimensions %></h2>
+                <h2><%= booking.surfboard.tail_config %></h2>
+                <% @results = Geocoder.search([booking.surfboard.latitude, booking.surfboard.longitude]) %>
+                <h2><%= @results.first.county %>, <%= @results.first.country %></h2>
+                <p>$<%= booking.surfboard.price %> day</p>
+                <p><%= booking.starts_at %></p>
+                <p><%= booking.ends_at %></p>
+                <p><%= booking.total_price %></p>
+                <p><%= booking.acceptance %></p>
+                <p><%= booking.comment %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

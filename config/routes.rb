@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :surfboards, except: ['update', 'edit'] do
     resources :bookings, only: ['new', 'create', 'destroy']
   end
-  resources :bookings, only: 'index'
+  resources :bookings, only: 'show'
   get 'my_surfboards', to: 'surfboards#my_surfboards'
   get 'my_bookings', to: 'bookings#my_bookings'
 end

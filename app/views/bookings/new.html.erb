@@ -1,2 +1,6 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for [@surfboard, @booking] do |f| %>
+  <%= f.input :starts_at, required: true, as: :date %>
+  <%= f.input :ends_at, required: true, as: :date %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>

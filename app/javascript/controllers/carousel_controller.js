@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 const track = document.querySelector('.track');
 
-const cardWidth = document.querySelector('.card-container').offsetWidth;
+const carouselWidth = document.querySelector('.carousel-container').offsetWidth;
 
 export default class extends Controller {
   connect() {
@@ -10,10 +10,10 @@ export default class extends Controller {
   }
 
   prev() {
-    track.style.transform = `translateX(-${cardWidth}px)`;
+    track.style.transform = `translateX(-${carouselWidth}px)`;
   }
 
   next() {
-    track.style.transform = `translateX(${cardWidth}px)`;
+    track.style.transform = `translateX(${carouselWidth}px)`;
   }
 }

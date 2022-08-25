@@ -1,16 +1,19 @@
-<div class="m-3">
+<div class="content">
   <div class="cards">
       <% @surfboards.each do |surfboard| %>
       <div class="card">
         <%= link_to surfboard_path(surfboard), class:"text-decoration-none" do %>
             <div class="card-product">
+              <div class="rating">
+                <i class="fa-solid fa-star" style="color:#FFD700"></i>
+                <h5 style="padding-left:4px"><%= surfboard.rating %></h5>
+              </div>
               <img src= <%= cl_image_path surfboard.photos[0].key %>>
-              <div class="card-product-infos mt-3 mb-3">
+
+              <div class="card-product-infos">
                 <h3><%= surfboard.title %></h3>
                 <h2>[<%= surfboard.latitude %>,<%= surfboard.longitude %>]</h2>
-                <p>$<%= surfboard.price %> per day</p>
-                <p>Rated: *<%= surfboard.rating %>*</p>
-                <p><%= surfboard.description[0,48] %>...</p>
+                <p class="price"><strong>$<%= surfboard.price.round %></strong> day</p>
               </div>
             </div>
           <% end %>

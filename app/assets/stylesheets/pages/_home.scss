@@ -1,17 +1,67 @@
 // Specific CSS for your home-page
+.search-question {
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+.search-box {
+  border-style: outset;
+  border-color: rgba(0, 0, 0, 0.6);
+}
+
 .headline {
   text-align: center;
   padding: 10vh 0;
 }
 
 .carousel-container {
-  width: 100%;
+  justify-content: space-evenly;
+  width: 80%;
   margin: 50px auto;
-  background: rgba(0, 0, 0, 0.5);
   min-height: 200px;
+  position: relative;
+
+  .carousel-inner {
+    overflow: hidden;
+  }
+
+  .track {
+    display: flex;
+  }
   .card-container {
-    width: 200px;
+    width: 20%;
+    flex-shrink: 0;
     height: 250px;
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 1px outline rgba(0, 0, 0, 1);
+    padding-right: 15px;
+    box-sizing: border-box;
+
+    .card {
+      width: 100%;
+      height: 100%;
+      border: 5px solid rgba(255, 255, 255, 1);
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+  }
+}
+
+.nav {
+  p {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 0;
+    position: absolute;
+    top: 60%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .prev {
+    left: -5%;
+  }
+  .next {
+    right: -5%;
   }
 }

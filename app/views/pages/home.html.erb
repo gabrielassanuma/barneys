@@ -1,9 +1,9 @@
 <div class="jumbotron banner-back parent position-relative" style="opacity: 0.8;">
   <div class="position-absolute" style="top: 150px; right: 60px; opacity: 1">
-    <h4 class="display-7" style="color: white; border: 1px; border-color: rgba(0, 0, 0, 0.8);">Where are you going?</h4>
+    <h4 class="display-7 search-question">Where are you going?</h4>
     <p class="lead">
       <%= form_with url: surfboards_path, method: :get, class: "d-flex" do %>
-        <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
+        <div data-controller="address-autocomplete search-box" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -25,11 +25,32 @@
 </div>
 
 <div class="carousel-container">
-  <div class="track">
-    <div class="card-container">
-      <div class="container">
+  <div class="carousel-inner">
+    <div class="track">
+      <div class="card-container">
+        <div class="card"></div>
+        <%#= render "shared/card" %>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
+      </div>
+      <div class="card-container">
+        <div class="card"></div>
       </div>
     </div>
+  </div>
+  <div class="nav" data-controller="carousel">
+    <p class="prev" data-action="click->carousel#prev"><i class="fa-solid fa-arrow-left"></i></p>
+    <p class="next" data-action="click->carousel#next"><i class="fa-solid fa-arrow-right"></i></p>
   </div>
 </div>
 

@@ -2,3 +2,8 @@
 @import "home";
 @import "show";
 
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}

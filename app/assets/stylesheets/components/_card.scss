@@ -5,8 +5,8 @@
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10%;
-  padding: 5%;
+  grid-gap: 12px;
+  padding: 12px;
 }
 .card {
   display: flex;
@@ -69,20 +69,20 @@ box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  #map {
-    display: none;
-  }
-}
-@media (min-width: 576px) {
+@media (min-width: 100px) and (max-width: 799px) {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
   #map {
     display: none;
+  }
+}
+@media (min-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: block;
   }
 }
 @media (min-width: 1200px) {

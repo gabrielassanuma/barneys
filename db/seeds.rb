@@ -38,7 +38,7 @@ addresses = ['Rua Rodrigues de Faria 63, Lisboa',
   file = URI.open("https://upload.wikimedia.org/wikipedia/commons/a/a5/Tom_Delonge_with_surfboard.jpg")
 
   surfboard = Surfboard.new(
-    title: Faker::WorldCup.roster,
+    model: Faker::WorldCup.roster,
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
     user: users.sample,

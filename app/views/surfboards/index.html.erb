@@ -14,8 +14,6 @@
                 <% @results = Geocoder.search([surfboard.latitude, surfboard.longitude]) %>
                 <h2><%= @results.first.county %></h2>
                 <p>$<%= surfboard.price %> per day</p>
-                <p>Rated: *<%= surfboard.rating %>*</p>
-                <p><%= surfboard.description[0,48] %>...</p>
               </div>
             </div>
           <% end %>

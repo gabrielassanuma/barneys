@@ -27,25 +27,11 @@
 <div class="carousel-container">
   <div class="carousel-inner">
     <div class="track">
-      <div class="card-container">
-        <div class="card"></div>
-        <%#= render "shared/card" %>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
+      <% @surfboards.each do |surfboard| %>
+        <div class="card-container">
+          <%= render "shared/card", surfboard: surfboard %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="nav" data-controller="carousel">

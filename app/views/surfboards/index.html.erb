@@ -1,30 +1,8 @@
 <div class="content">
   <div class="cards">
-      <% @surfboards.each do |surfboard| %>
-      <div class="card">
-        <%= link_to surfboard_path(surfboard), class:"text-decoration-none" do %>
-            <div class="card-product">
-              <% if (surfboard.rating != 0) %>
-                <div class="rating">
-                  <i class="fa-solid fa-star" style="color:#FFD700"></i>
-                  <h5 style="padding-left:4px"><%= surfboard.rating.round %></h5>
-                </div>
-              <% end %>
-              <img src= <%= cl_image_path surfboard.photos[0].key %>>
-              <div class="card-product-infos">
-                <h3><%= surfboard.model %></h3>
-                <h2><%= surfboard.dimensions %></h2>
-                <h2><%= surfboard.tail_config %></h2>
-                <% @results = Geocoder.search([surfboard.latitude, surfboard.longitude]) %>
-                <h2><%= @results.first.county %>, <%= @results.first.country %></h2>
-                <p>$<%= surfboard.price %> day</p>
-
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+    <% @surfboards.each do |surfboard| %>
+      <%= render "shared/card", surfboard: surfboard %>
+    <% end %>
   </div>
 </div>
 

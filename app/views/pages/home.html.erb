@@ -27,25 +27,11 @@
 <div class="carousel-container">
   <div class="carousel-inner">
     <div class="track">
-      <div class="card-container">
-        <div class="card"></div>
-        <%#= render "shared/card" %>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
-      <div class="card-container">
-        <div class="card"></div>
-      </div>
+      <% @surfboards.each do |surfboard| %>
+        <div class="card-container">
+          <%= render "shared/card", surfboard: surfboard %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="nav" data-controller="carousel">
@@ -53,12 +39,3 @@
     <p class="next" data-action="click->carousel#next"><i class="fa-solid fa-arrow-right"></i></p>
   </div>
 </div>
-
-
-<%# <h1>Pages#home</h1>
-<% @surfboards.each do |surfboard| %>
-<%# <%= surfboard.description %>
-<%# <%= surfboard.price %>
-<%# <%= link_to 'View', surfboard_path(surfboard), class: 'btn btn-warning' %>
-<%# <br> %>
-<%# <% end %>

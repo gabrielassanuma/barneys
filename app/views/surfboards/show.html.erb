@@ -9,7 +9,7 @@
         <img src= <%= cl_image_path @surfboard.photos[0].key %>>
     </div>
     <div class="description">
-      <h2><%= @surfboard.title %></h2>
+      <h2><%= @surfboard.model %></h2>
       <% @results = Geocoder.search([@surfboard.latitude, @surfboard.longitude]) %>
       <h4><%= @results.first.county %></h4>
       <h1>$<%= @surfboard.price %>  per day</h1>

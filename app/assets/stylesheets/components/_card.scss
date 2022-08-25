@@ -1,45 +1,95 @@
+.content {
+  display: flex;
+}
 .cards {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  padding: 16px;
 }
 .card {
-  border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: space-around;
+  width: 250px;
+  flex-direction: column;
+  text-align: center;
+  border: none;
+  background-color: #f4f4f4;
+}
+
+.rating{
+background-color: rgba(200,200, 200,0.9);
+position:absolute;
+display:flex;
+top:10px;
+left: 10px;
+padding: 7px 7px 0px 7px;
+border-radius: 3px;
+box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .card-product {
-  overflow: hidden;
-  height: 160px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: #f4f4f4;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   color: black;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: 250px;;
+  width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 12px;
+  opacity: 0.7;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
-  opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
   padding: 16px;
+  background-color: none;
+}
+
+.card-product-infos h3 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.card-product-infos p {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #map {
+    display: block;
+  }
 }

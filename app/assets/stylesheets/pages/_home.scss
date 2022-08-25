@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+.headline {
+  text-align: center;
+  padding: 10vh 0;
+}
+
+.carousel-container {
+  width: 100%;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 200px;
+  .card-container {
+    width: 200px;
+    height: 250px;
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+}

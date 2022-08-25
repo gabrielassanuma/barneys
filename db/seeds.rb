@@ -104,7 +104,10 @@ surfboard_tail_config = [
   file = URI.open(surfboard_photos[index])
 
   surfboard = Surfboard.new(
+
+
     model: surfboard_models[index],
+
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
     user: users.sample,

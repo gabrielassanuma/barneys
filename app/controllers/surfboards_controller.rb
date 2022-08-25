@@ -2,6 +2,14 @@ class SurfboardsController < ApplicationController
 
   def index
     @surfboards = Surfboard.all
+    @markers = @surfboards.geocoded.map do |surfboard|
+      {
+        lat: surfboard.latitude,
+        lng: surfboard.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   def my_surfboards

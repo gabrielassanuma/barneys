@@ -11,7 +11,7 @@ class SurfboardsController < ApplicationController
         lat: surfboard.latitude,
         lng: surfboard.longitude,
         info_window: render_to_string(partial: "info_window", locals: { surfboard: surfboard }),
-        image_url: helpers.asset_url("logo.png")
+        image_url: helpers.asset_url("logomap.png")
       }
     end
   end

@@ -53,10 +53,6 @@ class BookingsController < ApplicationController
     @surfboards = Surfboard.find(params[:surfboard_id])
   end
 
-  def set_surfboards
-    @surfboard = Surfboard.find(params[:surfboard_id])
-  end
-
   def booking_params
     params.require(:booking).permit(:starts_at, :ends_at, :comment)
   end

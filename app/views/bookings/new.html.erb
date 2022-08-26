@@ -1,6 +1,10 @@
-<%= simple_form_for [@surfboard, @booking] do |f| %>
-  <%= f.input :starts_at, required: true, as: :date %>
-  <%= f.input :ends_at, required: true, as: :date %>
-  <%= f.input :comment %>
-  <%= f.submit %>
-<% end %>
+<div class="row justify-content-center">
+  <div  class="col-12 col-sm-4">
+    <%= simple_form_for [@surfboard, @booking] do |f| %>
+      <%= f.input :starts_at, required: true, as: :date, html5: true %>
+      <%= f.input :ends_at, required: true, as: :date, html5: true %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

@@ -3,7 +3,6 @@ class SurfboardsController < ApplicationController
     if params[:query].present?
       search = params[:query].split(',')[0]
       @surfboards = Surfboard.where("address ILIKE ?", "%#{search}%")
-      raise
     else
       @surfboards = Surfboard.all
     end

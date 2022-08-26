@@ -3,16 +3,11 @@
     <h4 class="display-7 search-question">Where are you going?</h4>
     <p class="lead">
       <%= form_with url: surfboards_path, method: :get, class: "d-flex" do %>
-        <div data-controller="address-autocomplete search-box" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a board",
-            data: {address_autocomplete_target: "address"},
-            class: 'd-none'
-          %>
-        </div>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a surfboard" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </p>
     </div>

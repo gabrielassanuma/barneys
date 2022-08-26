@@ -20,28 +20,29 @@
   margin: 50px auto;
   min-height: 200px;
   position: relative;
+  padding-bottom: 40px;
 
   .carousel-inner {
     overflow: hidden;
   }
 
   .track {
-    display: flex;
+    display: inline-flex;
+    transition: transform 0.5s;
   }
   .card-container {
     width: 20%;
     flex-shrink: 0;
     height: 250px;
-    border: 1px outline rgba(0, 0, 0, 1);
-    padding-right: 15px;
+    padding: 15px;
     box-sizing: border-box;
 
     .card {
       width: 100%;
       height: 100%;
-      border: 5px solid rgba(255, 255, 255, 1);
       box-sizing: border-box;
       border-radius: 5px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     }
   }
 }
@@ -51,17 +52,30 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    text-align: center;
     border: 0;
     position: absolute;
-    top: 60%;
+    top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     cursor: pointer;
   }
   .prev {
     left: -5%;
+    .show {
+      display: block;
+    }
+    .hide {
+      display: none;
+    }
   }
   .next {
     right: -5%;
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
   }
 }

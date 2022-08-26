@@ -27,9 +27,9 @@
 <div class="carousel-container">
   <div class="carousel-inner">
     <div class="track">
-      <% @surfboards.each do |surfboard| %>
+      <% @carousel_cards.each do |cards| %>
         <div class="card-container">
-          <%= render "shared/card", surfboard: surfboard %>
+          <%= render "shared/card", surfboard: cards %>
         </div>
       <% end %>
     </div>

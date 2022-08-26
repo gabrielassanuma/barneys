@@ -1,5 +1,3 @@
-
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid" style="margin-left: 60px;">
     <%= link_to root_path, class: "navbar-brand" do %>
@@ -13,11 +11,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5px;">
       <ul class="navbar-nav me-auto">
             <li class="nav-item active" style="margin: 0px 10px">
-            <%= link_to 'Surfboards 🏄🏽‍♂️', surfboards_path, class: 'nav-link' %>
+            <%= link_to 'Surfboards 🏄🏽‍♂️', surfboards_path, class: 'nav-link'%>
           </li>
         <% if user_signed_in? %>
           <li class="nav-item" style="margin: 0px 10px">
-            <%= link_to 'My Bookings 📆', my_bookings_path, class: 'nav-link' %>
+            <%= link_to 'My Bookings 📆', my_bookings_path, class: 'nav-link'%>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kidscreen.com/wp/wp-content/uploads/2019/10/barney.jpg?93be91", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

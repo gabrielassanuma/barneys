@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def my_bookings
     # @surfboards = Surfboard.all
     @bookings = Booking.where(user: current_user)
+    @bookings = @bookings.sort{ |value1, value2| value2.starts_at <=> value1.starts_at }
     surfboards = @bookings.map {|booking| booking.surfboard }
     @surfboards = Surfboard.where(id: surfboards.pluck(:id))
     @markers = @surfboards.geocoded.map do |surfboard|

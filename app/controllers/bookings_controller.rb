@@ -27,12 +27,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.surfboard = @surfboard
+    @booking.surfboard = @surfboards
     @booking.user = current_user
     from = @booking.starts_at
     to = @booking.ends_at
     days = (to - from).divmod(60)[0].divmod(60)[0].divmod(24)[0]
-    @booking.total_price = days * @surfboard.price
+    @booking.total_price = days * @surfboards.price
     @booking.acceptance = true
     if @booking.save
       redirect_to my_bookings_path

@@ -23,7 +23,7 @@
   <h5>Explore the world's largest surfboard sharing marketplace</h5>
 </div>
 
-<div class="carousel-container">
+<div class="carousel-container" data-controller="carousel">
   <div class="carousel-inner">
     <div class="track">
       <% @carousel_cards.each do |cards| %>
@@ -33,8 +33,8 @@
       <% end %>
     </div>
   </div>
-  <div class="nav" data-controller="carousel">
-    <p class="prev" data-action="click->carousel#prev"><i class="fa-solid fa-arrow-left"></i></p>
-    <p class="next" data-action="click->carousel#next"><i class="fa-solid fa-arrow-right"></i></p>
+  <div class="nav">
+    <p class="prev"><i class="fa-solid fa-arrow-left"></i></p>
+    <p class="next"><i class="fa-solid fa-arrow-right"></i></p>
   </div>
 </div>

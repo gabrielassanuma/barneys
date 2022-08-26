@@ -1,40 +1,43 @@
-<div class="jumbotron banner-back parent position-relative" style="opacity: 0.8;">
-  <div class="position-absolute" style="top: 150px; right: 60px; opacity: 1">
-    <h4 class="display-7 search-question">Where are you going?</h4>
-    <p class="lead">
-      <%= form_with url: surfboards_path, method: :get, class: "d-flex" do %>
-        <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a board",
-            data: {address_autocomplete_target: "address"},
-            class: 'd-none'
-          %>
-        </div>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+<div class="flex-container" style="display: flex; flex-direction: column;">
+  <div class="jumbotron banner-back parent position-relative flex-item" style="opacity: 0.8;">
+    <div class="position-absolute" style="top: 150px; right: 60px; opacity: 1">
+      <h4 class="display-7 search-question">Where are you going?</h4>
+      <p class="lead">
+        <%= form_with url: surfboards_path, method: :get, class: "d-flex" do %>
+          <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value=<%= ENV["MAPBOX_API_KEY"] %>>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a board",
+              data: {address_autocomplete_target: "address"},
+              class: 'd-none'
+            %>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class='headline'>
-  <h1>Find your board</h1>
-  <h5>Explore the world's largest surfboard sharing marketplace</h5>
-</div>
-
-<div class="carousel-container" data-controller="carousel">
-  <div class="carousel-inner">
-    <div class="track">
-      <% @carousel_cards.each do |cards| %>
-        <div class="card-container">
-          <%= render "shared/card", surfboard: cards %>
-        </div>
-      <% end %>
-    </div>
+  <div class='headline flex-item'>
+    <br><br>
+    <h3><b>Find your board</b></h3>
+    <h5>Explore the world's largest surfboard sharing marketplace</h5>
   </div>
-  <div class="nav">
-    <p class="prev"><i class="fa-solid fa-arrow-left"></i></p>
-    <p class="next"><i class="fa-solid fa-arrow-right"></i></p>
+
+  <div class="carousel-container flex-item" data-controller="carousel">
+    <div class="carousel-inner">
+      <div class="track">
+        <% @carousel_cards.each do |cards| %>
+          <div class="card-container">
+            <%= render "shared/card", surfboard: cards %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="nav">
+      <p class="prev"><i class="fa-solid fa-arrow-left"></i></p>
+      <p class="next"><i class="fa-solid fa-arrow-right"></i></p>
+    </div>
   </div>
 </div>

@@ -5,13 +5,24 @@
       <div class="card">
         <%= link_to booking_path(booking), class:"text-decoration-none" do %>
             <div class="card-product">
-              <img src= <%= cl_image_path booking.surfboard.photos[0].key %>>
+            <% if  booking.ends_at < Date.today %>
+              <img src= <%= cl_image_path booking.surfboard.photos[0].key %> style="filter: grayscale(70%)">
               <div class="card-product-infos">
-                <h3>Your upcoming trip to: </h3>
-                <% @results = Geocoder.search([booking.surfboard.latitude, booking.surfboard.longitude]) %>
+                  <h3 style="color:#82807E">Your past trip to: </h3>
+                  <% @results = Geocoder.search([booking.surfboard.latitude, booking.surfboard.longitude]) %>
+                <h2 style="color:#82807E"><%= @results.first.county %>, <%= @results.first.country %></h2>
+                <p style="color:#82807E"><%= booking.starts_at.strftime('%b %d \'%y') %> to
+                <%= booking.ends_at.strftime('%b %d \'%y') %></p>
+                <% else %>
+                <img src= <%= cl_image_path booking.surfboard.photos[0].key %>>
+              <div class="card-product-infos">
+                  <h3>Your upcoming trip to: </h3>
+                  <% @results = Geocoder.search([booking.surfboard.latitude, booking.surfboard.longitude]) %>
                 <h2><%= @results.first.county %>, <%= @results.first.country %></h2>
                 <p><%= booking.starts_at.strftime('%b %d \'%y') %> to
                 <%= booking.ends_at.strftime('%b %d \'%y') %></p>
+                <%end%>
+
               </div>
             </div>
           <% end %>

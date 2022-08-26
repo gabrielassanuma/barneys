@@ -20,7 +20,7 @@ User.destroy_all
 
 puts "Create users..."
 5.times do
-  password = Faker::Alphanumeric.alphanumeric(number: 10)
+  password = "111111"
   user = User.new(
     email: Faker::Internet.email,
     password:,
@@ -104,10 +104,7 @@ surfboard_tail_config = [
   file = URI.open(surfboard_photos[index])
 
   surfboard = Surfboard.new(
-
-
     model: surfboard_models[index],
-
     description: Faker::TvShows::HowIMetYourMother.quote,
     price: rand(25..35),
     user: users.sample,
@@ -136,17 +133,18 @@ surfboards.each do |surfboard|
     review.save!
   end
 
-  rand(0..3).times do
+  rand(1..5).times do |i|
     # Create several bookings per user and board
-    from = Time.now
-    to = Time.now.next_month
+    month = i + 1
+    from = Date.new(2022, month, 15)
+    to = Date.new(2022, (month + 1), 3)
     days = (to - from).divmod(60)[0].divmod(60)[0].divmod(24)[0]
     booking = Booking.new(
       surfboard:,
       user: users.sample,
       starts_at: from,
       ends_at: to,
-      total_price: days * surfboard.price,
+      total_price: (1 + days) * surfboard.price,
       acceptance: true,
       comment: Faker::TvShows::TheFreshPrinceOfBelAir.quote
     )

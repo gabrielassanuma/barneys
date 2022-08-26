@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     from = @booking.starts_at
     to = @booking.ends_at
     days = (to - from).divmod(60)[0].divmod(60)[0].divmod(24)[0]
-    @booking.total_price = days * @surfboards.price
+    @booking.total_price = (1 + days) * @surfboards.price
     @booking.acceptance = true
     if @booking.save
       redirect_to my_bookings_path

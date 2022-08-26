@@ -1,7 +1,7 @@
 
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-left: 60px;">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
@@ -10,13 +10,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5px;">
       <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
+            <li class="nav-item active" style="margin: 0px 10px">
             <%= link_to 'Surfboards 🏄🏽‍♂️', surfboards_path, class: 'nav-link' %>
           </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <li class="nav-item" style="margin: 0px 10px">
             <%= link_to 'My Bookings 📆', my_bookings_path, class: 'nav-link' %>
           </li>
           <li class="nav-item dropdown">

@@ -10,16 +10,18 @@
     </div>
     <div class="card-right-side">
     <div class="description">
-      <h2><%= @surfboard.model %></h2>
+      <h2><%= @surfboard.model %></h2><br>
       <% @results = Geocoder.search([@surfboard.latitude, @surfboard.longitude]) %>
       <h4><%= @results.first.county %>, <%= @results.first.country %></h4>
-      <h1>$<%= @surfboard.price.round %> day</h1>
+      <h4><%= @surfboard.dimensions %></h4>
+      <h4><%= @surfboard.tail_config %></h4>
+      <h1>$<%= @surfboard.price.round %> / day</h1>
       <% if @surfboard.rating == 0 %>
         <p>Rated: New</p>
       <% else %>
         <p>Rated: *<%= @surfboard.rating %>*</p>
       <% end %>
-      <p><%= @surfboard.description %></p>
+      <p><%= @surfboard.description %></p><br>
       <%= link_to "Book now", new_surfboard_booking_path(@surfboard) %>
     </div>
   </div>

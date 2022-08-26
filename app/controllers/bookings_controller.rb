@@ -2,7 +2,18 @@ class BookingsController < ApplicationController
   before_action :set_surfboard, only: %i[new create]
 
   def my_bookings
+    # @surfboards = Surfboard.all
     @bookings = Booking.where(user: current_user)
+    surfboards = @bookings.map {|booking| booking.surfboard }
+    @surfboards = Surfboard.where(id: surfboards.pluck(:id))
+    @markers = @surfboards.geocoded.map do |surfboard|
+      {
+        lat: surfboard.latitude,
+        lng: surfboard.longitude,
+        info_window: render_to_string(partial: "surfboards/info_window", locals: { surfboard: surfboard }),
+        image_url: helpers.asset_url("logomap.png")
+      }
+    end
   end
 
   def new
@@ -39,6 +50,10 @@ class BookingsController < ApplicationController
   private
 
   def set_surfboard
+    @surfboards = Surfboard.find(params[:surfboard_id])
+  end
+
+  def set_surfboards
     @surfboard = Surfboard.find(params[:surfboard_id])
   end
 

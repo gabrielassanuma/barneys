@@ -136,9 +136,11 @@ surfboards.each do |surfboard|
   rand(1..5).times do |i|
     # Create several bookings per user and board
     month = i + 1
-    from = Date.new(2022, month, 15)
-    to = Date.new(2022, (month + 1), 3)
-    days = (to - from).divmod(60)[0].divmod(60)[0].divmod(24)[0]
+    start_day = rand(13..18)
+    end_day = rand(1..7)
+    from = Date.new(2022, month, start_day)
+    to = Date.new(2022, (month + 1), end_day)
+    days = to - from
     booking = Booking.new(
       surfboard:,
       user: users.sample,

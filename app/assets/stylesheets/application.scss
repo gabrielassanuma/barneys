@@ -11,13 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "bookings/show";
 
 a {
   text-decoration: none;
 }
 
 .page-container {
+  position:relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 80vh;
+  min-height: 100vh;
   }

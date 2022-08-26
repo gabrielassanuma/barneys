@@ -1,5 +1,4 @@
 class SurfboardsController < ApplicationController
-
   def index
     if params[:query].present?
       @surfboards = Surfboard.where("address ILIKE ?", "%#{params[:query]}%")

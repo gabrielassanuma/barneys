@@ -3,20 +3,33 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("I am connected!")
-  }
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
 
-  prev() {
     const track = document.querySelector('.track');
-    const cardWidth = document.querySelector('.card-container').offsetWidth;
-    track.style.transform = `translateX(-${cardWidth}px)`;
-  }
 
-  next() {
-    const track = document.querySelector('.track');
-    const cardWidth = document.querySelector('.card-container').offsetWidth;
-    track.style.transform = `translateX(${cardWidth}px)`;
-    track.style.transform = `translateX(-${carouselWidth}px)`;
+    const carouselWidth = document.querySelector('.carousel-container').offsetWidth;
+
+    let index = 0;
+
+    next.addEventListener('click', () => {
+      index++;
+      prev.classList.add('show');
+      track.style.transform = `translateX(-${index * carouselWidth}px)`
+
+      if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
+        next.classList('hide');
+      }
+    })
+
+    prev.addEventListener('click', () => {
+      index --;
+      next.classList.remove('hide');
+      if (index === 0) {
+        prev.classList.remove('show');
+      }
+      track.style.transform = `translateX(-${index * carouselWidth}px)`
+    })
   }
 
 }
